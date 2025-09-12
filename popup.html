@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Phantom Intel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h2>Phantom Intel — v1</h2>
+
+  <button id="scanBtn">Scan Current Site</button>
+
+  <section id="results" class="card hidden">
+    <h3>Results</h3>
+    <ul>
+      <li><strong>CMS:</strong> <span id="cms">—</span></li>
+      <li><strong>Meta Pixel:</strong> <span id="pixel">—</span></li>
+      <li><strong>Klaviyo:</strong> <span id="klaviyo">—</span></li>
+      <li><strong>Mailchimp:</strong> <span id="mailchimp">—</span></li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <h3>Quick Intel Links</h3>
+    <input id="domainInput" placeholder="domain.com (optional)" />
+    <div class="btn-row">
+      <button id="openMeta">Meta Ads Library</button>
+      <button id="openGoogle">Google Ads Transparency</button>
+      <button id="openLinkedIn">LinkedIn Company Search</button>
+    </div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

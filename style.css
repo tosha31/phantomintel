@@ -1,0 +1,17 @@
+:root { color-scheme: light dark; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; padding: 12px; width: 320px; }
+h2 { margin: 0 0 10px; font-size: 16px; }
+h3 { margin: 12px 0 6px; font-size: 13px; opacity: 0.8; text-transform: uppercase; letter-spacing: .5px; }
+
+button { padding: 8px 10px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; }
+button:hover { background: rgba(0,0,0,.05); }
+
+.card { border: 1px solid #ddd; border-radius: 10px; padding: 10px; }
+.hidden { display: none; }
+
+ul { list-style: none; padding: 0; margin: 6px 0 0; }
+li { margin: 6px 0; }
+
+.links { margin-top: 10px; }
+#domainInput { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #ccc; margin: 6px 0 10px; }
+.btn-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
