@@ -7,16 +7,16 @@ byId("scanBtn").addEventListener("click", async () => {
   await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["content.js"] });
 });
 
-chrome.runtime.onMessage.addListener((msg, _sender, _sendResponse) => {
-  if (msg.type === "scanResults") {
-    const { cms, pixel, klaviyo, mailchimp } = msg.data;
-    set("cms", cms);
-    set("pixel", pixel ? "✅ Yes" : "❌ No");
-    set("klaviyo", klaviyo ? "✅ Yes" : "❌ No");
-    set("mailchimp", mailchimp ? "✅ Yes" : "❌ No");
-    resultsCard.classList.remove("hidden");
-  }
-});
+chrome.runtime.onMessage.addListener((msg) => {
+    if (msg.type === "scanResults") {
+      const { cms, pixel, esp } = msg.data;
+      byId("cms").textContent = cms;
+      byId("pixel").textContent = pixel ? "✅ Yes" : "❌ No";
+      byId("esp").textContent = esp;
+      resultsCard.classList.remove("hidden");
+    }
+  });
+  
 
 // —— Quick intel links ——
 const domainFromInputOrTab = async () => {
@@ -40,12 +40,13 @@ byId("openMeta").addEventListener("click", async () => {
 });
 
 byId("openGoogle").addEventListener("click", async () => {
-  const domain = await domainFromInputOrTab();
-  const url = domain
-    ? `https://adstransparency.google.com/advertiser/${encodeURIComponent(domain)}`
-    : `https://adstransparency.google.com`;
-  chrome.tabs.create({ url });
-});
+    const domain = await domainFromInputOrTab();
+    const url = "https://adstransparency.google.com/";
+    chrome.tabs.create({ url });
+  });
+  
+  
+  
 
 byId("openLinkedIn").addEventListener("click", async () => {
   const domain = await domainFromInputOrTab();
