@@ -30,6 +30,22 @@ if (
   cms = "BigCommerce";
 } else if (has("weebly") || has("weeblycloud.com")) {
   cms = "Weebly";
+
+} else if (
+    has("multiscreensite.com") ||        // default/hosted domain + assets
+    has("s.multiscreensite.com")
+  ) {
+    cms = "Duda";
+  
+  // Sanity (headless)
+  } else if (
+    // asset CDN patterns are the most reliable
+    document.querySelector("img[src*='cdn.sanity.io/'], source[srcset*='cdn.sanity.io/'], link[href*='cdn.sanity.io/'], script[src*='cdn.sanity.io/']") ||
+    has("cdn.sanity.io/")
+  ) {
+    cms = "Sanity (headless)";
+
+
 } else if (has(".php") && !has("wp-content/") && !has("joomla")) {
   cms = "Custom PHP (heuristic)";
 }
