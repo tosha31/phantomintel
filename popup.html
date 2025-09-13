@@ -7,37 +7,44 @@
 </head>
 <body>
     <header class="brand">
+      <div class="logo-wrap">
         <img class="logo" src="icon.png" alt="Phantom Intel" />
-        <div class="titles">
-          <h1>PHANTOM INTEL</h1>
-          <h4>By: ToshaDev</h4>
-          <p class="subtitle">v1 — field scanner</p>
+      </div>
+      <div class="titles">
+        <h1>PHANTOM INTEL</h1>
+        <p class="byline">©2025 ToshaDev</p>
+        <p class="byline"></p>
+        <p class="subtitle">v1.0.0 — Field Scanner</p>
+      </div>
+    </header>
+  
+    <main>
+      <section class="panel">
+        <button id="scanBtn" class="btn btn-primary">
+          <span class="scan-dot"></span> Scan Current Site
+        </button>
+      </section>
+  
+      <section id="results" class="panel hidden">
+        <h2>Results</h2>
+        <ul class="kv">
+          <li><span>CMS</span><strong id="cms">—</strong></li>
+          <li><span>Meta Pixel</span><strong id="pixel">—</strong></li>
+          <li><span>ESP</span><strong id="esp">—</strong></li>
+        </ul>
+      </section>
+  
+      <section class="panel">
+        <h2>Quick Intel Links</h2>
+        <input id="domainInput" class="input" placeholder="domain.com (optional)" />
+        <div class="btn-row">
+          <button id="openMeta" class="btn">Meta Ads Library</button>
+          <button id="openGoogle" class="btn">Google Ads Transparency</button>
+          <button id="openLinkedIn" class="btn">LinkedIn Company Search</button>
         </div>
-      </header>
-
-
-
-  <button id="scanBtn">Scan Current Site</button>
-
-  <section id="results" class="card hidden">
-    <h3>Results</h3>
-    <ul>
-      <li><strong>CMS:</strong> <span id="cms">—</span></li>
-      <li><strong>Meta Pixel:</strong> <span id="pixel">—</span></li>
-      <li><strong>ESP:</strong> <span id="esp">—</span></li>
-    </ul>
-  </section>
-
-  <section class="links">
-    <h3>Quick Intel Links</h3>
-    <input id="domainInput" placeholder="domain.com (optional)" />
-    <div class="btn-row">
-      <button id="openMeta">Meta Ads Library</button>
-      <button id="openGoogle">Google Ads Transparency</button>
-      <button id="openLinkedIn">LinkedIn Company Search</button>
-    </div>
-  </section>
-
-  <script src="popup.js"></script>
-</body>
+      </section>
+    </main>
+  
+    <script src="popup.js"></script>
+  </body>
 </html>
