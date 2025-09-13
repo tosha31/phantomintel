@@ -86,7 +86,7 @@
     padding-left: 52px; 
   }
   .subtitle {
-    margin: 0;
+    margin: 14px 0 0; 
     font-size: 11px;
     color: var(--text-dim);
     opacity: 0.75;
