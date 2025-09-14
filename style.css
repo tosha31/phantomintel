@@ -189,3 +189,51 @@ header.brand { margin-bottom: 16px; }
 .btn-row {
   margin-top: 6px;   /* tiny extra breathing room */
 }
+
+
+/* ----- Matrix-ish animated Results card ----- */
+.results.scanning {
+    position: relative;
+    overflow: hidden;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px #000 inset, 0 0 18px var(--accent-soft);
+  }
+  
+  /* vertical neon rain */
+  .results.scanning::before {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      repeating-linear-gradient(to bottom, rgba(0,255,136,0.06) 0 2px, transparent 2px 14px),
+      repeating-linear-gradient(to right,  rgba(0,255,136,0.07) 0 1px, transparent 1px 7px);
+    background-size: 100% 16px, 8px 100%;
+    animation: rainY 1.35s linear infinite;
+  }
+  @keyframes rainY { to { background-position-y: 16px, 0; } }
+  
+  .results.scanning h2::after {
+    content: " ···";
+    animation: dots 1.4s steps(4,end) infinite;
+  }
+  @keyframes dots {
+    0% { content: " "; } 25% { content: " ."; } 50% { content: " .."; } 75% { content: " ..."; } 100% { content: " "; }
+  }
+  
+  /* badges for boolean-ish fields */
+  .badge        { padding: 2px 6px; border-radius: 6px; border:1px solid var(--border); font-weight:600; }
+  .badge-yes    { color: var(--good); border-color:#00ffa633; background:#00ffa612; }
+  .badge-no     { color: var(--bad);  border-color:#ff5e6c33; background:#ff5e6c12; }
+
+/* Smooth row reveal (top -> bottom) */
+.kv-item {
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity .22s ease, transform .22s ease;
+  }
+  .kv-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+  
