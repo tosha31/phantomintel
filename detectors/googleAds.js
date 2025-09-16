@@ -236,10 +236,17 @@
       }
     }
 
-    // ---- Execution ----
+    // ---- Execution with Smooth Timing ----
     const runDetection = () => {
       const result = detectGoogleAds();
-      safeSend(result);
+      
+      // Add a small delay to sync with the main scanning animation
+      // This matches the timing from content.js and popup.js
+      const scanDelay = 800; // Slightly longer than popup's minScanMs (700)
+      
+      setTimeout(() => {
+        safeSend(result);
+      }, scanDelay);
     };
 
     if (document.readyState === 'loading') {
